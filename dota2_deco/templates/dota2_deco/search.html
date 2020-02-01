@@ -1,0 +1,46 @@
+<header>
+    <div class="top_margin">
+        <span>
+        </span>
+        <span>
+            <span class="header_right">Login</span>
+            <span class="header_right">Register</span>
+        </span>
+    </div>
+
+    <link rel="stylesheet" href="./static/search_style.css">
+    <h1>
+        <center>Dota2 Trader</center>
+    </h1>
+</header>
+
+<body>
+
+    <div>
+        <center>
+            <input type="text" name="keyword">
+            <button type="submit" class="searchbtn">
+                <center>search</center>
+            </button>
+        </center>
+    </div>
+
+    {% if cheapest_item_list %}
+    <h2>Match your search:</h2>
+    <div class="show_box_container">
+        {% for item in cheapest_item_list %}
+        <div class="show_box">
+            <a href="{% url 'dota2_deco:detail' item_id %}">
+                <ul>
+                    <li>{{ item.item_type }}</li>
+                    <li>{{ item.price }}</li>
+                    <li>publish on {{ item.pub_date }}</li>
+                    <li>by {{ item.publisher_id }}</li>
+                </ul>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No items are available.</p>
+    {% endif %}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'login_page_style.css' %}">
+</head>
+
+<body>
+
+<form action="./register" method="POST" style="border:1px solid #ccc">
+  {% csrf_token %} 
+  <div class="container">
+    <h1>Register</h1>
+    <p>Please register here with your email/username</p>
+    <hr>
+
+    <label for="email"><b>Email/username</b></label>
+    
+    <input id="username" type="text" placeholder="Enter Email" name="user_email" required>
+    
+    {% if user_check %}
+    <div id="user_check" title="user_check">
+        <p>User name already existed</p>
+    </div>
+    {% endif %}
+
+
+
+    <label for="psw"><b>Password</b></label>
+    <input id="password" type="password" placeholder="Enter Password" name="user_password" required>
+
+    <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn"><Ri:art>Regitser</Ri:art></button>
+    </div>
+  </div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+{% load static %}
+<header>
+    <div class="top_margin">
+        <span>
+        </span>
+        <div><button class="accessbtn">Login</button></div>
+        <div><button class="accessbtn">Register</button></div>
+    </div>
+
+    <link rel="stylesheet" href="{% static 'index_style.css' %}">
+    <h1>
+        <center>Dota2 Trader</center>
+    </h1>
+</header>
+
+<body>
+
+    <div>
+        <center>
+            <form action="/dota2_deco/search/" method="POST">
+                {% csrf_token %}
+                <input type="text" name="keyword" value="{{keyword}}">
+                <button type="submit" class="searchbtn">
+                    <center>search</center>
+                </button>
+            </form>
+        </center>
+    </div>
+
+    {% if user_search_results %}
+    <div id="search_result">
+        <h2>From your search:</h2>
+        <div class="show_box_container">
+            {% for item in user_search_results %}
+            <div class="show_box">
+                <a href="{% url 'dota2_deco:detail' item_id=item.item_id %}">
+                    <ul>
+                        <li>{{ item.item_type }}</li>
+                        <li>{{ item.price }}</li>
+                        <li>{{ item.pub_date }}</li>
+                        <li>{{ item.publisher_id }}</li>
+                    </ul>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+    {% endif %}
+
+    <div id="default">
+        {% if latest_item_list %}
+        <h2>The most recent uploads:</h2>
+        <div class="show_box_container">
+            {% for item in latest_item_list %}
+            <div class="show_box">
+                <a href="{% url 'dota2_deco:detail' item_id=item.item_id %}">
+                    <ul>
+                        <li>{{ item.item_type }}</li>
+                        <li>{{ item.price }}</li>
+                        <li>{{ item.pub_date }}</li>
+                        <li>{{ item.publisher_id }}</li>
+                    </ul>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>No items are available.</p>
+        {% endif %}
+    </div>

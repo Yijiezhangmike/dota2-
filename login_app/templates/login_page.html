@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'login_page_style.css' %}">
+</head>
+
+<body>
+<form action="log" method = 'POST' style="border:1px solid #ccc">
+  <div class="container">
+    <h1>Login</h1>
+    <p>Please login here with your email/username</p>
+    <hr>
+
+    <label for="email"><b>Email/username</b></label>
+    <input id="username" type="text" placeholder="Enter Email" name="user_email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input id="password" type="password" placeholder="Enter Password" name="user_password" required>
+
+    <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    </label>
+
+    {% if user_check == False %}
+      {%if user_name == True %}
+      <p>user name and password unmatch</p>
+      {% else %}
+      <P>user dont existed</P>
+      {% endif %}
+    {% endif %}
+    
+    <p>Forget password? <a href="{% url 'login_app:forget_password' %}" style="color:dodgerblue">reset password</a>.</p>
+    
+    <p>Still dont have an account? <a href="{% url 'login_app:redirect_register' %}" style="color:dodgerblue">register here</a>.</p>
+
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn">login</button>
+    </div>
+  </div>
+</form> 
+
+</body>
+</html>

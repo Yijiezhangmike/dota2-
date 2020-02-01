@@ -1,0 +1,54 @@
+h1 {
+	margin-top: 10%;
+	margin-bottom: 5%;
+}
+
+.top_margin{
+	display: flex;
+	justify-content: space-between;
+}
+
+input[type=text] {
+  width: 80%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.signupbtn {
+  float: left;
+  width: 50%;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.show_box_container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+
+.show_box{
+	margin:10px;
+	border:1px lightgrey solid;
+	border-radius: 5px;
+	width: 300px;
+	height: 50%;
+}

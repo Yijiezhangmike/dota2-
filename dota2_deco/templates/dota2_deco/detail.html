@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'detail_style.css' %}">
+</head>
+<body>
+<div class="container">
+<h2>Decoration describtion:</h2>
+<div id="decoraiotn">
+<ul>
+  <li>{{decoration.decoration_name}}</li>
+  <li>{{decoration.decoration_champion}}</li>
+  <li>{{decoration.decoration_part}}</li>
+  <li>{{decoration.decoration_rarelity}}</li>
+  <li>{{decoration.decoration_average_price}}</li>
+
+</ul>
+</div>
+<h2>Item Details</h2>
+<ul>
+  <li>{{item.item_type}}</li>
+  <li>{{item.price}}</li>
+  <li>{{item.pub_date}}</li>
+</ul>
+</div>
+</body>
+</html>

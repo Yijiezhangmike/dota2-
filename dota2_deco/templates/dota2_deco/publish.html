@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'publish_css.css' %}">
+</head>
+
+<body>
+
+<form action="/dota2_deco/publish/item_upload/" style="border:1px solid #ccc" method="POST">
+  <div class="container">
+    <h1>Publish</h1>
+    <p> </p>
+    <hr>
+
+    <label for="type"><b>Type</b></label>
+    <input id="type" type="text" placeholder="choose your item" name="type" list="item_type" required>
+      <datalist id="item_type">
+      {% if type_list %}
+      {% for item_type in type_list %}
+      <option value="{{ item_type }}">{{ item_type.decoration_name }}</option>
+      {% endfor %}
+      {% else %}
+      <option value="no currect valid option">no currect valid option</option>
+      {% endif %}
+      </datalist>
+
+    <label for="price"><b>Price</b></label>
+    <input id="price" type="number" placeholder="Enter price" name="price" required>
+
+    <label>
+      <input type="checkbox" checked="checked" name="contact_agreement" style="margin-bottom:15px">agree to the contact
+    </label>
+    
+    <div class="clearfix">
+      <button type="submit" class="accessbtn">publish</button>
+    </div>
+  </div>
+</form>
+
+</body>
+</html>
